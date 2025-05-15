@@ -1,0 +1,22 @@
+import streamlit as st
+import pandas as pd
+def main():
+    st.title("Housing Data Analysis")
+
+    # Load dataset
+    df = pd.read_csv("Housing.csv")
+
+    st.subheader("First 5 Rows")
+    st.dataframe(df.head())
+
+    st.subheader("Dataset Info")
+    buffer = []
+    df.info(buf=buffer.append)
+    st.text('\n'.join(buffer))
+
+    st.subheader("Summary Statistics")
+    st.dataframe(df.describe())
+
+    st.subheader("Missing Values")
+    st.write(df.isnull().sum())
+
